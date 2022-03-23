@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +7,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { states } from "../data/states";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -15,47 +15,68 @@ export const options = {
   responsive: true,
 };
 
-const labels = [
-  "Aguascalientes",
-  "Baja California",
-  "Baja California Sur",
-  "Campeche",
-  "Coahuila",
-  "Colima",
-  "Chiapas",
-  "Chihuahua",
-  "Durango",
-  "CDMX",
-  "Guanajuato",
-  "Guerrero",
-  "Hidalgo",
-  "Jalisco",
-  "México",
-  "Michoacán",
-  "Morelos",
-  "Nayarit",
-  "Nuevo León",
-  "Oaxaca",
-  "Puebla",
-  "Querétaro",
-  "Quintana Roo",
-  "San Luis Potosí",
-  "Sinaloa",
-  "Sonora",
-  "Tabasco",
-  "Tamaulipas",
-  "Tlaxcala",
-  "Veracruz",
-  "Yucatán",
-  "Zacatecas",
-];
+//Import data
+const labels = states;
+let idhData = labels.map(() => Math.random());
+
+// let sort = "Ascendente";
+// let sort = "Descendente";
+// let sort = "Alfabetiamente A-Z";
+let sort = "Alfabetiamente Z-A";
+
+let arrayObj = states.map((d, i) => {
+  return {
+    label: d,
+    data: idhData[i] || 0,
+  };
+});
+
+let newStates = [];
+let newidhData = [];
+
+if (sort === "Ascendente") {
+  let sortedState = arrayObj.sort((a, b) => {
+    return b.data > a.data;
+  });
+  sortedState.forEach((e) => {
+    newStates.push(e.label);
+    newidhData.push(e.data);
+  });
+}
+if (sort === "Descendente") {
+  let sortedState = arrayObj.sort((a, b) => {
+    return a.data > b.data;
+  });
+  sortedState.forEach((e) => {
+    newStates.push(e.label);
+    newidhData.push(e.data);
+  });
+}
+if (sort === "Alfabetiamente A-Z") {
+  let sortedState = arrayObj.sort((a, b) => {
+    return a.label > b.label;
+  });
+  sortedState.forEach((e) => {
+    newStates.push(e.label);
+    newidhData.push(e.data);
+  });
+}
+
+if (sort === "Alfabetiamente Z-A") {
+  let sortedState = arrayObj.sort((a, b) => {
+    return b.label > a.label;
+  });
+  sortedState.forEach((e) => {
+    newStates.push(e.label);
+    newidhData.push(e.data);
+  });
+}
 
 export const data = {
-  labels,
+  labels: newStates,
   datasets: [
     {
-      label: "Índice de Desarollo Humano",
-      data: labels.map(() => Math.random()),
+      data: newidhData,
       backgroundColor: "#d82ccd",
     },
   ],
