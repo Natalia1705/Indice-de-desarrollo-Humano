@@ -1,9 +1,10 @@
 import "./App.css";
+import { BarChart } from "./components/BarChart";
 
 function App() {
   return (
     <div className="App">
-      <div className="title">Índice de desarrollo Humano</div>
+      <BarChart />
     </div>
   );
 }
