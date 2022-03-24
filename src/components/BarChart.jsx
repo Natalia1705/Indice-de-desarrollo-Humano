@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 import { arrayObj } from "../data/data.js";
@@ -14,10 +15,6 @@ import {
 import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
-
-export const options = {
-  responsive: true,
-};
 
 // provitional constants
 let sort = "Alfabetiamente Z-A";
@@ -73,11 +70,19 @@ for (let i = 0; i < newStates.length; i++) {
     backgroundColor.push("rgba(196,39,245,0.8)");
   }
 }
-
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
+};
 export const data = {
   labels: newStates,
   datasets: [
     {
+      label: "labels",
       data: newidhData,
       backgroundColor,
       borderRadius: "3",
@@ -87,28 +92,60 @@ export const data = {
 
 export function BarChart() {
   const stateFilteredArray = arrayObj.filter((e) => e.label === selectedState);
-  console.log(stateFilteredArray);
+
+  //Calculating the average of ihd
+  let total = 0;
+  stateFilteredArray.map(({ data }) => (total += data));
+  const average = total / stateFilteredArray.length;
+
+  //Calculating the max
+  const max = Math.max.apply(
+    Math,
+    stateFilteredArray.map(function (e) {
+      return e.data;
+    })
+  );
+
+  //Calculating the min
+  const min = Math.min.apply(
+    Math,
+    stateFilteredArray.map(function (e) {
+      return e.data;
+    })
+  );
 
   return (
-    <div className="chart">
+    <Container className="d-flex flex-column align-items-center p-0">
       <Bar
-        style={{ margin: "10px 60px " }}
         options={options}
         data={data}
-        className="font-weight-normal"
+        style={{ width: "100vh", height: "100%" }}
       />
-      ;
-      <Card border="info" style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>Promedio IDH</Card.Title>
-          <Card.Text>{}</Card.Text>
-          <Card.Title>IDH más alto</Card.Title>
-          <Card.Text>{}</Card.Text>
-          <Card.Title>IDH más alto</Card.Title>
-          <Card.Text>{}</Card.Text>
+      <Card
+        className="border-0 shadow p-1 mb-5 bg-white rounded "
+        style={{ width: "18rem" }}
+      >
+        <Card.Body className="d-flex flex-column p-1 align-items-center ">
+          <Card.Title
+            className="m-1 "
+            style={{ fontSize: "1rem", color: "rgba(39,178,245,0.8)" }}
+          >
+            {selectedState}
+          </Card.Title>
+          <Card.Text
+            className="m-0 text-muted"
+            style={{ fontSize: "0.7rem" }}
+          >{`Promedio IDH ${average.toFixed(3)}`}</Card.Text>
+          <Card.Text
+            className="m-0 text-muted"
+            style={{ fontSize: "0.7rem" }}
+          >{`IDH más alto ${max.toFixed(3)}`}</Card.Text>
+          <Card.Text
+            className="m-0 text-muted"
+            style={{ fontSize: "0.7rem" }}
+          >{`IDH más bajo ${min.toFixed(3)}`}</Card.Text>
         </Card.Body>
       </Card>
-      <br />
-    </div>
+    </Container>
   );
 }
