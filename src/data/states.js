@@ -22,6 +22,7 @@ export const states = [
   "Puebla",
   "Querétaro",
   "Quintana Roo",
+  "San Luis Potosí",
   "Sinaloa",
   "Sonora",
   "Tabasco",
@@ -30,5 +31,6 @@ export const states = [
   "Veracruz",
   "Yucatán",
   "Zacatecas",
-  "San Luis Potosí",
 ];
+
+export const years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];

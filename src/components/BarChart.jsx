@@ -1,3 +1,5 @@
+/* eslint-disable no-unreachable */
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +10,8 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { states } from "../data/states";
+import { years } from "../data/states";
+import { DropdownButton, Dropdown } from "react-bootstrap";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -19,10 +23,8 @@ export const options = {
 const labels = states;
 let idhData = labels.map(() => Math.random());
 
-// let sort = "Ascendente";
-// let sort = "Descendente";
-// let sort = "Alfabetiamente A-Z";
-let sort = "Alfabetiamente Z-A";
+// provitional let
+let sort = "Descendente";
 
 let arrayObj = states.map((d, i) => {
   return {
@@ -83,5 +85,33 @@ export const data = {
 };
 
 export function BarChart() {
-  return <Bar style={{ margin: "10px 60px " }} options={options} data={data} />;
+  return (
+    <div className="barChart mb-2">
+      <div className="dropDown">
+        <DropdownButton id="dropdown-item-button" title="Estado">
+          {states.map((e) => (
+            <Dropdown.Item as="button">{e}</Dropdown.Item>
+          ))}
+        </DropdownButton>
+      </div>
+      <div className="dropDown">
+        <DropdownButton id="dropdown-item-button" title="Año">
+          {years.map((e) => (
+            <Dropdown.Item as="button">{e}</Dropdown.Item>
+          ))}
+        </DropdownButton>
+      </div>
+      <div className="dropDown">
+        <DropdownButton id="dropdown-item-button" title="Ordenar Datos">
+          <Dropdown.Item as="button">Ascendente</Dropdown.Item>
+          <Dropdown.Item as="button">Descendente</Dropdown.Item>
+          <Dropdown.Item as="button">Alfabetiamente A-Z</Dropdown.Item>
+          <Dropdown.Item as="button">Alfabetiamente Z-A</Dropdown.Item>
+        </DropdownButton>
+      </div>
+      <div className="chart">
+        <Bar style={{ margin: "10px 60px " }} options={options} data={data} />;
+      </div>
+    </div>
+  );
 }
