@@ -1,8 +1,7 @@
 // import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Card } from "react-bootstrap";
 import { arrayObj } from "../data/data.js";
-import { labels } from "../data/data";
-import { years } from "../data/data";
 
 import {
   Chart as ChartJS,
@@ -13,7 +12,6 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { DropdownButton, Dropdown } from "react-bootstrap";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -21,7 +19,7 @@ export const options = {
   responsive: true,
 };
 
-// provitional let
+// provitional constants
 let sort = "Alfabetiamente Z-A";
 let selectedYear = 2019;
 let selectedState = "Oaxaca";
@@ -29,8 +27,6 @@ let newStates = [];
 let newidhData = [];
 
 const yearFilteredArray = arrayObj.filter((e) => e.year === selectedYear);
-
-console.log(yearFilteredArray);
 
 if (sort === "Ascendente") {
   let sortedState = yearFilteredArray.sort((a, b) => {
@@ -90,55 +86,29 @@ export const data = {
 };
 
 export function BarChart() {
-  // const [sort, setSort] = useState("Alfabetiamente A-Z");
+  const stateFilteredArray = arrayObj.filter((e) => e.label === selectedState);
+  console.log(stateFilteredArray);
 
   return (
-    <div className="barChart mb-2">
-      <div className="dropDown">
-        <DropdownButton id="dropdown-item-button" title="Estado">
-          {labels.map((e) => (
-            <Dropdown.Item as="button">{e}</Dropdown.Item>
-          ))}
-        </DropdownButton>
-      </div>
-      <div className="dropDown">
-        <DropdownButton id="dropdown-item-button" title="Año">
-          {years.map((e) => (
-            <Dropdown.Item as="button">{e}</Dropdown.Item>
-          ))}
-        </DropdownButton>
-      </div>
-      <div className="dropDown">
-        <DropdownButton id="dropdown-item-button" title="Ordenar Datos">
-          <Dropdown.Item as="button" value={"Ascendente"}>
-            Ascendente
-          </Dropdown.Item>
-          <Dropdown.Item
-            as="button"
-            value="Descendente"
-            // onChange={(e) => setSort(e.target.value)}
-          >
-            Descendente
-          </Dropdown.Item>
-          <Dropdown.Item
-            as="button"
-            value="Alfabetiamente A-Z"
-            // onChange={(e) => setSort(e.target.value)}
-          >
-            Alfabetiamente A-Z
-          </Dropdown.Item>
-          <Dropdown.Item
-            as="button"
-            value="Alfabetiamente Z-A"
-            // onChange={(e) => setSort(e.target.value)}
-          >
-            Alfabetiamente Z-A
-          </Dropdown.Item>
-        </DropdownButton>
-      </div>
-      <div className="chart">
-        <Bar style={{ margin: "10px 60px " }} options={options} data={data} />;
-      </div>
+    <div className="chart">
+      <Bar
+        style={{ margin: "10px 60px " }}
+        options={options}
+        data={data}
+        className="font-weight-normal"
+      />
+      ;
+      <Card border="info" style={{ width: "18rem" }}>
+        <Card.Body>
+          <Card.Title>Promedio IDH</Card.Title>
+          <Card.Text>{}</Card.Text>
+          <Card.Title>IDH más alto</Card.Title>
+          <Card.Text>{}</Card.Text>
+          <Card.Title>IDH más alto</Card.Title>
+          <Card.Text>{}</Card.Text>
+        </Card.Body>
+      </Card>
+      <br />
     </div>
   );
 }
