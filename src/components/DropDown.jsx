@@ -1,14 +1,16 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Form } from "react-bootstrap";
 import { labels } from "../data/data";
 import { years } from "../data/data";
 
-export const DropDown = () => {
-  const [sort, setSort] = useState("Alfabetiamente Z-A");
-  const [selectedYear, setSelectedYear] = useState(2019);
-  const [selectedState, setSelectedState] = useState("Oaxaca");
-
+export const DropDown = ({
+  setSort,
+  setSelectedYear,
+  setSelectedState,
+  selectedState,
+  selectedYear,
+}) => {
   return (
     <>
       <Container className="d-flex justify-content-center">
@@ -20,13 +22,15 @@ export const DropDown = () => {
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"
-          custom
+          defaultValue={selectedState}
           onChange={(event) => {
             setSelectedState(event.target.value);
           }}
         >
-          {labels.map((e) => (
-            <option value={e}>{e}</option>
+          {labels.map((state) => (
+            <option value={state} key={state}>
+              {state}
+            </option>
           ))}
         </Form.Control>
         <Form.Control
@@ -37,13 +41,15 @@ export const DropDown = () => {
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"
-          custom
+          defaultValue={selectedYear}
           onChange={(event) => {
-            setSelectedYear(event.target.value);
+            setSelectedYear(Number(event.target.value));
           }}
         >
-          {years.map((e) => (
-            <option value={e}>{e}</option>
+          {years.map((year) => (
+            <option value={year} key={year}>
+              {year}
+            </option>
           ))}
         </Form.Control>
         <Form.Control
@@ -54,7 +60,6 @@ export const DropDown = () => {
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"
-          custom
           onChange={(event) => {
             setSort(event.target.value);
           }}
@@ -65,7 +70,6 @@ export const DropDown = () => {
           <option value="Alfabetiamente Z-A">Alfabetiamente Z-A</option>
         </Form.Control>
       </Container>
-      {console.log(sort, selectedYear, selectedState)}
     </>
   );
 };
