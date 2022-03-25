@@ -1,18 +1,25 @@
-// import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Form } from "react-bootstrap";
+import React, { useContext } from "react";
+import { ApplicationContext } from "../App";
 import { labels } from "../data/data";
 import { years } from "../data/data";
+import { Container, Form } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export const DropDown = ({
-  setSort,
-  setSelectedYear,
-  setSelectedState,
-  selectedState,
-  selectedYear,
-}) => {
+export const DropDown = () => {
+  const {
+    sort,
+    setSort,
+    selectedYear,
+    setSelectedYear,
+    selectedState,
+    setSelectedState,
+  } = useContext(ApplicationContext);
+
   return (
     <>
+      <h4 className="text-center text-muted mt-4">
+        Índice de Desarrollo Humano
+      </h4>
       <Container className="d-flex justify-content-center">
         <Form.Control
           className="m-4 shadow-sm p-2 mb-4 bg-white rounded text-center border-0"
@@ -60,6 +67,7 @@ export const DropDown = ({
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"
+          defaultValue={sort}
           onChange={(event) => {
             setSort(event.target.value);
           }}

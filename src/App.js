@@ -1,31 +1,29 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { createContext, useState } from "react";
 import { BarChart } from "./components/BarChart";
+import { BottomCard } from "./components/BottomCard";
 import { DropDown } from "./components/DropDown";
+
+export const ApplicationContext = createContext();
 
 function App() {
   const [sort, setSort] = useState("Ascendente");
   const [selectedYear, setSelectedYear] = useState(2015);
   const [selectedState, setSelectedState] = useState("Oaxaca");
   return (
-    <Container>
-      <h4 className="text-center text-muted mt-4">
-        Índice de Desarrollo Humano
-      </h4>
-      <DropDown
-        selectedState={selectedState}
-        setSort={setSort}
-        selectedYear={selectedYear}
-        setSelectedYear={setSelectedYear}
-        setSelectedState={setSelectedState}
-      />
-      <BarChart
-        sort={sort}
-        selectedYear={selectedYear}
-        selectedState={selectedState}
-      />
-    </Container>
+    <ApplicationContext.Provider
+      value={{
+        sort,
+        setSort,
+        selectedYear,
+        setSelectedYear,
+        selectedState,
+        setSelectedState,
+      }}
+    >
+      <DropDown />
+      <BarChart />
+      <BottomCard />
+    </ApplicationContext.Provider>
   );
 }
 
