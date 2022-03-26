@@ -24,7 +24,7 @@ export const DropDown = () => {
         <Form.Control
           className="m-2 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "8rem",
+            width: "auto",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}
@@ -43,7 +43,7 @@ export const DropDown = () => {
         <Form.Control
           className="m-2 ml-4 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "8rem",
+            width: "auto",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}
@@ -62,7 +62,7 @@ export const DropDown = () => {
         <Form.Control
           className="m-2 ml-4 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "8rem",
+            width: "auto",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}

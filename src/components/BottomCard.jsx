@@ -9,7 +9,6 @@ export const BottomCard = () => {
   const { selectedState } = useContext(ApplicationContext);
   const stateFilteredArray = arrayObj.filter((e) => e.label === selectedState);
 
-  console.log(arrayObj);
   return (
     <Container className="d-flex flex-column align-items-center p-4">
       <Card

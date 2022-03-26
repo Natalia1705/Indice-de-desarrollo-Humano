@@ -24,6 +24,7 @@ export function BarChart() {
   const size = useWindowSize();
 
   let newStates = [];
+  let newStatesAbr = [];
   let newidhData = [];
 
   const yearFilteredArray = arrayObj.filter((obj) => obj.year === selectedYear);
@@ -33,6 +34,7 @@ export function BarChart() {
     });
     sortedState.forEach((e) => {
       newStates.push(e.label);
+      newStatesAbr.push(e.abr);
       newidhData.push(e.data);
     });
   }
@@ -42,6 +44,7 @@ export function BarChart() {
     });
     sortedState.forEach((e) => {
       newStates.push(e.label);
+      newStatesAbr.push(e.abr);
       newidhData.push(e.data);
     });
   }
@@ -51,6 +54,7 @@ export function BarChart() {
     });
     sortedState.forEach((e) => {
       newStates.push(e.label);
+      newStatesAbr.push(e.abr);
       newidhData.push(e.data);
     });
   }
@@ -61,12 +65,17 @@ export function BarChart() {
   //Conditional color
   const backgroundColor = [];
   for (let i = 0; i < newStates.length; i++) {
-    if (newStates === selectedState) {
+    if (newStates[i] === selectedState) {
       backgroundColor.push("rgba(39,178,245,0.8)");
     } else {
       backgroundColor.push("rgba(196,39,245,0.8)");
     }
   }
+
+  console.log("nuevo", newStates);
+  console.log("seleccionado", selectedState);
+  console.log(backgroundColor);
+
   const options = {
     responsive: true,
     plugins: {
@@ -98,9 +107,25 @@ export function BarChart() {
     ],
   };
 
+  const dataAbr = {
+    labels: newStatesAbr,
+    datasets: [
+      {
+        label: "IDH",
+        data: newidhData,
+        backgroundColor,
+        borderRadius: "3",
+      },
+    ],
+  };
+
   return (
     <Container className="d-flex flex-column align-items-center p-0">
-      <Bar options={size.width > 480 ? options : optionsAbr} data={data} />
+      <Bar
+        options={size.width > 480 ? options : optionsAbr}
+        data={data}
+        // data={size.width > 480 ? data : dataAbr}
+      />
     </Container>
   );
 }
