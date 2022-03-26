@@ -32,7 +32,6 @@ export const labels = [
   "Yucatán",
   "Zacatecas",
 ];
-
 export const years = [2015, 2016, 2017, 2018, 2019, 2020];
 
 export const arrayObj = years
@@ -40,3 +39,38 @@ export const arrayObj = years
     labels.map((state) => ({ year, label: state, data: Math.random() }))
   )
   .flat(1);
+
+export const abbre = [
+  "Ags",
+  "B.C",
+  "B.C.S",
+  "Camp",
+  "Coah",
+  "Col",
+  "Chis",
+  "Chih",
+  "CDMX",
+  "Dgo",
+  "Gto",
+  "Gro",
+  "Hgo",
+  "Jal",
+  "Méx",
+  "Mich",
+  "Mor",
+  "Nay",
+  "N.L",
+  "Oax",
+  "Pue",
+  "Qro",
+  "Q.R",
+  "S.L.P",
+  "Sin",
+  "Son",
+  "Tab",
+  "Tams",
+  "Tlax",
+  "Ver",
+  "Yuc",
+  "Zac",
+];

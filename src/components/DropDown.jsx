@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { ApplicationContext } from "../App";
+import { useContext } from "react";
+import { ApplicationContext } from "../context/Context";
 import { labels } from "../data/data";
 import { years } from "../data/data";
 import { Container, Form } from "react-bootstrap";
@@ -20,11 +20,11 @@ export const DropDown = () => {
       <h4 className="text-center text-muted mt-4">
         Índice de Desarrollo Humano
       </h4>
-      <Container className="d-flex justify-content-center">
+      <Container className="d-flex flex-column flex-sm-row justify-content-center align-items-center">
         <Form.Control
-          className="m-4 shadow-sm p-2 mb-4 bg-white rounded text-center border-0"
+          className="m-2 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "auto",
+            width: "8rem",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}
@@ -41,9 +41,9 @@ export const DropDown = () => {
           ))}
         </Form.Control>
         <Form.Control
-          className="m-4 shadow-sm p-2 mb-4 bg-white rounded text-center border-0"
+          className="m-2 ml-4 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "auto",
+            width: "8rem",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}
@@ -60,9 +60,9 @@ export const DropDown = () => {
           ))}
         </Form.Control>
         <Form.Control
-          className="m-4 shadow-sm p-2 mb-4 bg-white rounded text-center border-0"
+          className="m-2 ml-4 shadow-sm bg-white rounded text-center border-0"
           style={{
-            width: "auto",
+            width: "8rem",
             fontSize: ".8rem",
             color: "rgba(196,39,245,0.8)",
           }}
@@ -74,8 +74,7 @@ export const DropDown = () => {
         >
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
-          <option value="Alfabetiamente A-Z"> Alfabetiamente A-Z</option>
-          <option value="Alfabetiamente Z-A">Alfabetiamente Z-A</option>
+          <option value="Alfabeticamente A-Z"> Alfabeticamente A-Z</option>
         </Form.Control>
       </Container>
     </>

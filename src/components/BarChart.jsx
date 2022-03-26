@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
 import { useContext } from "react";
-import { Container } from "react-bootstrap";
 import { arrayObj } from "../data/data.js";
-import { ApplicationContext } from "../App";
+import { ApplicationContext } from "../context/Context";
+import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useWindowSize } from "../Hooks/windowSize";
 
 import {
   Chart as ChartJS,
@@ -15,10 +17,11 @@ import {
 import { Bar } from "react-chartjs-2";
 
 export function BarChart() {
-  ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+  //Manage Graph Sort
   const { sort } = useContext(ApplicationContext);
   const { selectedYear } = useContext(ApplicationContext);
   const { selectedState } = useContext(ApplicationContext);
+  const size = useWindowSize();
 
   let newStates = [];
   let newidhData = [];
@@ -26,7 +29,7 @@ export function BarChart() {
   const yearFilteredArray = arrayObj.filter((obj) => obj.year === selectedYear);
   if (sort === "Descendente") {
     let sortedState = yearFilteredArray.sort((a, b) => {
-      return b.data > a.data;
+      return b.data - a.data;
     });
     sortedState.forEach((e) => {
       newStates.push(e.label);
@@ -35,14 +38,14 @@ export function BarChart() {
   }
   if (sort === "Ascendente") {
     let sortedState = yearFilteredArray.sort((a, b) => {
-      return a.data > b.data;
+      return a.data - b.data;
     });
     sortedState.forEach((e) => {
       newStates.push(e.label);
       newidhData.push(e.data);
     });
   }
-  if (sort === "Alfabetiamente A-Z") {
+  if (sort === "Alfabeticamente A-Z") {
     let sortedState = yearFilteredArray.sort((a, b) => {
       return a.label > b.label;
     });
@@ -51,16 +54,11 @@ export function BarChart() {
       newidhData.push(e.data);
     });
   }
-  if (sort === "Alfabetiamente Z-A") {
-    let sortedState = yearFilteredArray.sort((a, b) => {
-      return b.label > a.label;
-    });
-    sortedState.forEach((e) => {
-      newStates.push(e.label);
-      newidhData.push(e.data);
-    });
-  }
 
+  //Graph optios, data, color, regiser Inputs
+  ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+
+  //Conditional color
   const backgroundColor = [];
   for (let i = 0; i < newStates.length; i++) {
     if (newStates[i] === selectedState) {
@@ -77,6 +75,17 @@ export function BarChart() {
       },
     },
   };
+
+  const optionsAbr = {
+    indexAxis: "y",
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+
   const data = {
     labels: newStates,
     datasets: [
@@ -88,10 +97,10 @@ export function BarChart() {
       },
     ],
   };
-  // let width = window.innerWidth;
+
   return (
     <Container className="d-flex flex-column align-items-center p-0">
-      <Bar options={options} data={data} style={{ width: "100vh" }} />
+      <Bar options={size.width > 480 ? options : optionsAbr} data={data} />
     </Container>
   );
 }
