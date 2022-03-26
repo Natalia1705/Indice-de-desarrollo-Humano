@@ -32,13 +32,6 @@ export const labels = [
   "Yucatán",
   "Zacatecas",
 ];
-export const years = [2015, 2016, 2017, 2018, 2019, 2020];
-
-export const arrayObj = years
-  .map((year) =>
-    labels.map((state) => ({ year, label: state, data: Math.random() }))
-  )
-  .flat(1);
 
 export const abbre = [
   "Ags",
@@ -50,8 +43,8 @@ export const abbre = [
   "Chis",
   "Chih",
   "CDMX",
-  "Dgo",
   "Gto",
+  "Dgo",
   "Gro",
   "Hgo",
   "Jal",
@@ -74,3 +67,16 @@ export const abbre = [
   "Yuc",
   "Zac",
 ];
+
+export const years = [2015, 2016, 2017, 2018, 2019, 2020];
+
+export const arrayObj = years
+  .map((year) =>
+    labels.map((state) => ({
+      year,
+      label: state,
+      data: Math.random(),
+      abr: abbre[labels.indexOf(state)],
+    }))
+  )
+  .flat(1);

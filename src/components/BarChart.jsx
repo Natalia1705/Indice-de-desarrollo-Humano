@@ -61,7 +61,7 @@ export function BarChart() {
   //Conditional color
   const backgroundColor = [];
   for (let i = 0; i < newStates.length; i++) {
-    if (newStates[i] === selectedState) {
+    if (newStates === selectedState) {
       backgroundColor.push("rgba(39,178,245,0.8)");
     } else {
       backgroundColor.push("rgba(196,39,245,0.8)");
