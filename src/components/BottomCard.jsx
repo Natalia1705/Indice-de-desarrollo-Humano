@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ApplicationContext } from "../context/Context";
 import { arrayObj } from "../data/data.js";
 import { Container, Card } from "react-bootstrap";
-import { average, max, min } from "../utils/BottomUtils";
+import { average, max, min } from "../utils/BottomCardUtils";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const BottomCard = () => {
@@ -11,24 +11,21 @@ export const BottomCard = () => {
 
   return (
     <Container className="d-flex flex-column align-items-center p-4">
-      <Card
-        className="border-0 shadow rounded shadow-sm-none"
-        style={{ width: "18rem" }}
-      >
+      <Card className="border-0" style={{ width: "18rem" }}>
         <Card.Body className="d-flex flex-column p-1 align-items-center ">
           <Card.Title
             className="m-1 "
-            style={{ fontSize: "1rem", color: "rgba(39,178,245,0.8)" }}
+            style={{ fontSize: "1.3rem", color: "rgba(39,178,245,0.8)" }}
           >
             {selectedState}
           </Card.Title>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.7rem" }}>
+          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
             {`Promedio IDH ${average(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.7rem" }}>
+          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
             {`IDH más alto ${max(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.7rem" }}>
+          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
             {`IDH más bajo ${min(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
         </Card.Body>
