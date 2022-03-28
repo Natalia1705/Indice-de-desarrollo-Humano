@@ -17,57 +17,61 @@ export const DropDown = () => {
 
   return (
     <>
-      <h4 className="text-center text-muted mt-4">
+      <h4
+        className="d-flex justify-content-center align-items-center text-muted mt-4"
+        style={{
+          fontSize: "calc(0.90em + 1vmin)",
+        }}
+      >
         Índice de Desarrollo Humano
       </h4>
-      <Container className="d-flex flex-column justify-content-center align-items-center">
-        <div className="col-8 row ">
-          <Form.Control
-            className="m-2 shadow-sm bg-white rounded text-center border-0"
-            style={{
-              width: "auto",
-              fontSize: ".8rem",
-              color: "rgba(196,39,245,0.8)",
-            }}
-            as="select"
-            defaultValue={selectedState}
-            id="state"
-            onChange={(event) => {
-              setSelectedState(event.target.value);
-            }}
-          >
-            {labels.map((state) => (
-              <option value={state} key={state}>
-                {state}
-              </option>
-            ))}
-          </Form.Control>
-          <Form.Control
-            className="m-2 ml-4 shadow-sm bg-white rounded text-center justify-content-center border-0"
-            style={{
-              width: "auto",
-              fontSize: ".8rem",
-              color: "rgba(196,39,245,0.8)",
-            }}
-            as="select"
-            defaultValue={selectedYear}
-            id="year"
-            onChange={(event) => {
-              setSelectedYear(Number(event.target.value));
-            }}
-          >
-            {years.map((year) => (
-              <option value={year} key={year}>
-                {year}
-              </option>
-            ))}
-          </Form.Control>
-        </div>
+      <Container className="d-flex justify-content-center align-items-center">
         <Form.Control
-          className="m-2 ml-4 shadow-sm bg-white rounded text-center border-0"
+          className="m-0 p-2 ml-4 shadow-sm bg-white rounded text-center border-0 m-sm-2 "
           style={{
             width: "auto",
-            fontSize: ".8rem",
+            fontSize: "calc(0.50em + 1vmin)",
+            color: "rgba(196,39,245,0.8)",
+          }}
+          as="select"
+          defaultValue={selectedState}
+          id="state"
+          onChange={(event) => {
+            setSelectedState(event.target.value);
+          }}
+        >
+          {labels.map((state) => (
+            <option value={state} key={state}>
+              {state}
+            </option>
+          ))}
+        </Form.Control>
+        <Form.Control
+          className="m-0 p-2 ml-4 shadow-sm bg-white rounded text-center border-0 m-sm-2 "
+          style={{
+            width: "auto",
+            fontSize: "calc(0.50em + 1vmin)",
+            color: "rgba(196,39,245,0.8)",
+          }}
+          as="select"
+          defaultValue={selectedYear}
+          id="year"
+          onChange={(event) => {
+            setSelectedYear(Number(event.target.value));
+          }}
+        >
+          {years.map((year) => (
+            <option value={year} key={year}>
+              {year}
+            </option>
+          ))}
+        </Form.Control>
+
+        <Form.Control
+          className="m-0 p-2 ml-4 shadow-sm bg-white rounded text-center border-0 m-sm-2 "
+          style={{
+            width: "auto",
+            fontSize: "calc(0.50em + 1vmin)",
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"

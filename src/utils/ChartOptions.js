@@ -11,9 +11,15 @@ export const selectBackgroundColor = (newStates, selectedState) => {
   return backgroundColor;
 };
 
+//height of graph container
+export const height = (windowWidth) => {
+  return windowWidth < 480 ? "700px" : "360px";
+};
+
 //options
 export const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       display: false,
@@ -23,6 +29,7 @@ export const options = {
 
 export const optionsAbr = {
   indexAxis: "y",
+  maintainAspectRatio: false,
   responsive: true,
   plugins: {
     legend: {

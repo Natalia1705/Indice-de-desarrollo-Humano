@@ -14,21 +14,33 @@ export const BottomCard = () => {
       className="d-flex flex-column align-items-center p-4"
       id="bottomCard"
     >
-      <Card className="border-0" style={{ width: "18rem" }}>
+      <Card className="border-0">
         <Card.Body className="d-flex flex-column p-1 align-items-center ">
           <Card.Title
             className="m-1 "
-            style={{ fontSize: "1.3rem", color: "rgba(39,178,245,0.8)" }}
+            style={{
+              fontSize: "calc(0.70em + 1.1vmin)",
+              color: "rgba(39,178,245,0.8)",
+            }}
           >
             {selectedState}
           </Card.Title>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
+          <Card.Text
+            className="m-0 text-muted "
+            style={{ fontSize: "calc(0.50em + 1vmin)" }}
+          >
             {`Promedio IDH ${average(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
+          <Card.Text
+            className="m-0 text-muted"
+            style={{ fontSize: "calc(0.50em + 1vmin)" }}
+          >
             {`IDH más alto ${max(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
-          <Card.Text className="m-0 text-muted" style={{ fontSize: "0.9rem" }}>
+          <Card.Text
+            className="m-0 text-muted"
+            style={{ fontSize: "calc(0.50em + 1vmin)" }}
+          >
             {`IDH más bajo ${min(stateFilteredArray).toFixed(3)}`}
           </Card.Text>
         </Card.Body>

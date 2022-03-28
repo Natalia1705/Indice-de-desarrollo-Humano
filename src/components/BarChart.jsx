@@ -9,6 +9,7 @@ import {
   optionsAbr,
   options,
   newData,
+  height,
 } from "../utils/ChartOptions";
 import {
   Chart as ChartJS,
@@ -37,8 +38,12 @@ export function BarChart() {
   const dataAbr = newData(newStatesAbr, newidhData, backgroundColor);
 
   ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+
   return (
-    <Container className="d-flex flex-column align-items-center p-0">
+    <Container
+      className="d-flex flex-column align-items-center p-0"
+      style={{ height: height(size.width) }}
+    >
       <Bar
         id="BarChart"
         options={size.width < 480 ? optionsAbr : options}
