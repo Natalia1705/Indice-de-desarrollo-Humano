@@ -2,7 +2,7 @@ import { Bar } from "react-chartjs-2";
 import { useContext } from "react";
 import { ApplicationContext } from "../context/Context";
 import { Container } from "react-bootstrap";
-import { useWindowSize } from "../Hooks/windowSize";
+import { useWindowSize } from "../hooks/windowSize";
 import { sortGraph } from "../utils/ChartSort";
 import {
   selectBackgroundColor,
@@ -40,6 +40,7 @@ export function BarChart() {
   return (
     <Container className="d-flex flex-column align-items-center p-0">
       <Bar
+        id="BarChart"
         options={size.width < 480 ? optionsAbr : options}
         data={size.width < 480 ? dataAbr : data}
       />

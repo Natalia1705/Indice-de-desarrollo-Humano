@@ -20,7 +20,7 @@ export const DropDown = () => {
       <h4 className="text-center text-muted mt-4">
         Índice de Desarrollo Humano
       </h4>
-      <Container className="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+      <Container className="d-flex flex-column justify-content-center align-items-center">
         <div className="col-8 row ">
           <Form.Control
             className="m-2 shadow-sm bg-white rounded text-center border-0"
@@ -31,6 +31,7 @@ export const DropDown = () => {
             }}
             as="select"
             defaultValue={selectedState}
+            id="state"
             onChange={(event) => {
               setSelectedState(event.target.value);
             }}
@@ -50,6 +51,7 @@ export const DropDown = () => {
             }}
             as="select"
             defaultValue={selectedYear}
+            id="year"
             onChange={(event) => {
               setSelectedYear(Number(event.target.value));
             }}
@@ -69,6 +71,7 @@ export const DropDown = () => {
             color: "rgba(196,39,245,0.8)",
           }}
           as="select"
+          id="sort"
           defaultValue={sort}
           onChange={(event) => {
             setSort(event.target.value);

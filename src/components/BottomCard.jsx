@@ -10,7 +10,10 @@ export const BottomCard = () => {
   const stateFilteredArray = arrayObj.filter((e) => e.label === selectedState);
 
   return (
-    <Container className="d-flex flex-column align-items-center p-4">
+    <Container
+      className="d-flex flex-column align-items-center p-4"
+      id="bottomCard"
+    >
       <Card className="border-0" style={{ width: "18rem" }}>
         <Card.Body className="d-flex flex-column p-1 align-items-center ">
           <Card.Title
