@@ -1,6 +1,6 @@
-import { BarChart } from "./components/BarChart";
-import { BottomCard } from "./components/BottomCard";
-import { DropDown } from "./components/DropDown";
+import { BarChart } from "./components/barChart/BarChart.jsx";
+import { BottomCard } from "./components/bottomCard/BottomCard.jsx";
+import { DropDown } from "./components/dropDown/DropDown.jsx";
 
 export const App = () => {
   return (

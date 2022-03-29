@@ -1,3 +1,5 @@
+//calculating the bottom Card numbers
+
 //   Calculating the average of IDH
 export const average = (array) => {
   let total = 0;

@@ -1,22 +1,22 @@
-//Conditional BackgroundColor
+//Conditional BackgroundColor(diferent color in selectedState column)
 export const selectBackgroundColor = (newStates, selectedState) => {
   const backgroundColor = [];
   for (let i = 0; i < newStates.length; i++) {
     if (newStates[i] === selectedState) {
-      backgroundColor.push("rgba(39,178,245,0.8)");
+      backgroundColor.push("rgba(223,63,34,0.9)");
     } else {
-      backgroundColor.push("rgba(196,39,245,0.8)");
+      backgroundColor.push("rgba(32, 153, 62,0.9)");
     }
   }
   return backgroundColor;
 };
 
-//height of graph container
+//funtion tha return the graph´height container depending on window Width
 export const height = (windowWidth) => {
   return windowWidth < 480 ? "700px" : "360px";
 };
 
-//options
+//Chart options (idexAxis:"y" is added in vertical graph)
 export const options = {
   responsive: true,
   maintainAspectRatio: false,
@@ -29,6 +29,7 @@ export const options = {
 
 export const optionsAbr = {
   indexAxis: "y",
+
   maintainAspectRatio: false,
   responsive: true,
   plugins: {
@@ -38,6 +39,7 @@ export const optionsAbr = {
   },
 };
 
+//function that return an object with the description of attributes (passed as an argument)
 export const newData = (newStates, newidhData, backgroundColor) => {
   const data = {
     labels: newStates,

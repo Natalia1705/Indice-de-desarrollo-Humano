@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ApplicationContext } from "../context/Context";
-import { arrayObj } from "../data/data.js";
+import { ApplicationContext } from "../../context/Context";
+import { arrayObj } from "../../data/data.js";
 import { Container, Card } from "react-bootstrap";
-import { average, max, min } from "../utils/BottomCardUtils";
+import { average, max, min } from "../../utils/BottomCardUtils";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const BottomCard = () => {
@@ -11,7 +11,7 @@ export const BottomCard = () => {
 
   return (
     <Container
-      className="d-flex flex-column align-items-center p-4"
+      className="d-flex flex-column align-items-center justify-content-center"
       id="bottomCard"
     >
       <Card className="border-0">
@@ -20,7 +20,7 @@ export const BottomCard = () => {
             className="m-1 "
             style={{
               fontSize: "calc(0.70em + 1.1vmin)",
-              color: "rgba(39,178,245,0.8)",
+              color: "rgba(223,63,34,0.9)",
             }}
           >
             {selectedState}

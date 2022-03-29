@@ -1,7 +1,10 @@
 import { arrayObj } from "../data/data.js";
 
+//Returns arrays with data ordered depending on type of sort selected
 export const sortGraph = (selectedYear, sort) => {
+  //Filters all objects with selected year
   const yearFilteredArray = arrayObj.filter((obj) => obj.year === selectedYear);
+
   let newStates = [];
   let newStatesAbr = [];
   let newidhData = [];
