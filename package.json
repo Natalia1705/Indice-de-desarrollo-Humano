@@ -1,6 +1,9 @@
 {
   "name": "idh",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
@@ -17,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
