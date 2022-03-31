@@ -1,13 +1,13 @@
-//calculating the bottom Card numbers
+//calculating the bottom Card data
 
-//   Calculating the average of IDH
+// Calculating the average of IDH
 export const average = (array) => {
   let total = 0;
   array.map(({ data }) => (total += data));
   return total / array.length;
 };
 
-//   Calculating the max data of IDH
+// Calculating the max data of IDH
 export const max = (array) =>
   Math.max.apply(
     Math,
@@ -16,7 +16,7 @@ export const max = (array) =>
     })
   );
 
-//   Calculating the min data of IDH
+// Calculating the min data of IDH
 export const min = (array) =>
   Math.min.apply(
     Math,

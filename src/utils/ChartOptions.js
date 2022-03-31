@@ -29,7 +29,6 @@ export const options = {
 
 export const optionsAbr = {
   indexAxis: "y",
-
   maintainAspectRatio: false,
   responsive: true,
   plugins: {

@@ -1,9 +1,9 @@
+import { Container, Card } from "react-bootstrap";
 import { useContext } from "react";
+
 import { ApplicationContext } from "../../context/Context";
 import { arrayObj } from "../../data/data.js";
-import { Container, Card } from "react-bootstrap";
 import { average, max, min } from "../../utils/BottomCardUtils";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export const BottomCard = () => {
   const { selectedState } = useContext(ApplicationContext);
@@ -12,7 +12,7 @@ export const BottomCard = () => {
   return (
     <Container
       className="d-flex flex-column align-items-center justify-content-center"
-      id="bottomCard"
+      data-testid="bottomCard"
     >
       <Card className="border-0">
         <Card.Body className="d-flex flex-column p-1 align-items-center ">

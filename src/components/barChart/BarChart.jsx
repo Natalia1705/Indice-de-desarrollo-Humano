@@ -1,7 +1,15 @@
 import { Bar } from "react-chartjs-2";
 import { useContext } from "react";
-import { ApplicationContext } from "../../context/Context";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import { Container } from "react-bootstrap";
+
 import { useWindowSize } from "../../hooks/windowSize";
 import { sortGraph } from "../../utils/ChartSort";
 import {
@@ -11,15 +19,7 @@ import {
   newData,
   height,
 } from "../../utils/ChartOptions";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { ApplicationContext } from "../../context/Context";
 
 export function BarChart() {
   const { sort } = useContext(ApplicationContext);
@@ -50,7 +50,7 @@ export function BarChart() {
       style={{ height: height(size.width) }}
     >
       <Bar
-        id="BarChart"
+        data-testid="chartBar"
         options={size.width < 480 ? optionsAbr : options}
         data={size.width < 480 ? dataAbr : data}
       />

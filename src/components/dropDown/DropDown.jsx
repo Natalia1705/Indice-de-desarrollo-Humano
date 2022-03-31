@@ -1,9 +1,9 @@
+import { Container, Form } from "react-bootstrap";
 import { useContext } from "react";
+
 import { ApplicationContext } from "../../context/Context";
 import { labels } from "../../data/data";
 import { years } from "../../data/data";
-import { Container, Form } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export const DropDown = () => {
   const {
@@ -25,8 +25,8 @@ export const DropDown = () => {
       >
         Índice de Desarrollo Humano
       </h4>
-      <Container className="row md-column align-items-center m-3">
-        <div class="col-6 col-sm-9 d-flex justify-content-center">
+      <Container className="row md-column align-items-center m-3" id="dropDowm">
+        <div className="col-6 col-sm-9 d-flex justify-content-center">
           <Form.Control
             className="m-2 p-1 text-muted"
             style={{
@@ -37,12 +37,13 @@ export const DropDown = () => {
             as="select"
             defaultValue={selectedState}
             id="state"
+            data-testid="state"
             onChange={(event) => {
               setSelectedState(event.target.value);
             }}
           >
             {labels.map((state) => (
-              <option value={state} key={state}>
+              <option data-testid="select-state" value={state} key={state}>
                 {state}
               </option>
             ))}
@@ -57,18 +58,19 @@ export const DropDown = () => {
             as="select"
             defaultValue={selectedYear}
             id="year"
+            data-testid="year"
             onChange={(event) => {
               setSelectedYear(Number(event.target.value));
             }}
           >
             {years.map((year) => (
-              <option value={year} key={year}>
+              <option data-testid="select-year" value={year} key={year}>
                 {year}
               </option>
             ))}
           </Form.Control>
         </div>
-        <div class="col-6 col-sm-3">
+        <div className="col-6 col-sm-3">
           <Form.Control
             className="align-text-center m-2 p-1 text-muted"
             style={{
@@ -78,14 +80,22 @@ export const DropDown = () => {
             }}
             as="select"
             id="sort"
+            data-testid="sort"
             defaultValue={sort}
             onChange={(event) => {
               setSort(event.target.value);
             }}
           >
-            <option value="Ascendente">Ascendente</option>
-            <option value="Descendente">Descendente</option>
-            <option value="Alfabeticamente A-Z"> Alfabeticamente A-Z</option>
+            <option data-testid="select-sort" value="Ascendente">
+              Ascendente
+            </option>
+            <option data-testid="select-sort" value="Descendente">
+              Descendente
+            </option>
+            <option data-testid="select-sort" value="Alfabeticamente A-Z">
+              {" "}
+              Alfabeticamente A-Z
+            </option>
           </Form.Control>
         </div>
       </Container>
