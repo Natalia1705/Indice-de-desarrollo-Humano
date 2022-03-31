@@ -1,7 +1,7 @@
 import { Container, Form } from "react-bootstrap";
 import { useContext } from "react";
 
-import { ApplicationContext } from "../../context/Context";
+import { ApplicationContext } from "../../context/DataContext/Context";
 import { labels } from "../../data/data";
 import { years } from "../../data/data";
 
@@ -93,7 +93,6 @@ export const DropDown = () => {
               Descendente
             </option>
             <option data-testid="select-sort" value="Alfabeticamente A-Z">
-              {" "}
               Alfabeticamente A-Z
             </option>
           </Form.Control>

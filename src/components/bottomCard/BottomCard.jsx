@@ -1,9 +1,9 @@
 import { Container, Card } from "react-bootstrap";
 import { useContext } from "react";
 
-import { ApplicationContext } from "../../context/Context";
 import { arrayObj } from "../../data/data.js";
 import { average, max, min } from "../../utils/BottomCardUtils";
+import { ApplicationContext } from "../../context/DataContext/Context";
 
 export const BottomCard = () => {
   const { selectedState } = useContext(ApplicationContext);

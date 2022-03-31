@@ -19,7 +19,7 @@ import {
   newData,
   height,
 } from "../../utils/ChartOptions";
-import { ApplicationContext } from "../../context/Context";
+import { ApplicationContext } from "../../context/DataContext/Context";
 
 export function BarChart() {
   const { sort } = useContext(ApplicationContext);
