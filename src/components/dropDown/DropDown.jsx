@@ -1,7 +1,7 @@
 import { Container, Form } from "react-bootstrap";
 import { useContext } from "react";
 
-import { ApplicationContext } from "../../context/DataContext/Context";
+import { ApplicationContext } from "../../context/Context";
 import { labels } from "../../data/data";
 import { years } from "../../data/data";
 

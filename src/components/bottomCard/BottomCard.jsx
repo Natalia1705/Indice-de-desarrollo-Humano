@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { arrayObj } from "../../data/data.js";
 import { average, max, min } from "../../utils/BottomCardUtils";
-import { ApplicationContext } from "../../context/DataContext/Context";
+import { ApplicationContext } from "../../context/Context";
 
 export const BottomCard = () => {
   const { selectedState } = useContext(ApplicationContext);
