@@ -1,7 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import Context from "../../context/Context";
 import { render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 
 import { BottomCard } from "./BottomCard";
 

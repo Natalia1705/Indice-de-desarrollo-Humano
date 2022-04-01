@@ -1,4 +1,5 @@
 import { Bar } from "react-chartjs-2";
+import { Container } from "react-bootstrap";
 import { useContext } from "react";
 import {
   Chart as ChartJS,
@@ -8,7 +9,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Container } from "react-bootstrap";
 
 import { useWindowSize } from "../../hooks/windowSize";
 import { sortGraph } from "../../utils/ChartSort";
@@ -48,6 +48,7 @@ export function BarChart() {
       style={{ height: height(size.width) }}
     >
       <Bar
+        id="barChart"
         data-testid="chartBar"
         options={size.width < 480 ? optionsAbr : options}
         data={size.width < 480 ? dataAbr : data}

@@ -1,7 +1,6 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import { render, screen, fireEvent } from "@testing-library/react";
 import Context from "../../context/Context";
-import "@testing-library/jest-dom";
 
 import { DropDown } from "./DropDown";
 

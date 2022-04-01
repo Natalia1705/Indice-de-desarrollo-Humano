@@ -14,7 +14,7 @@ export const BottomCard = () => {
       className="d-flex flex-column align-items-center justify-content-center"
       data-testid="bottomCard"
     >
-      <Card className="border-0">
+      <Card className="border-0" id="bottomCard">
         <Card.Body className="d-flex flex-column p-1 align-items-center ">
           <Card.Title
             className="m-1 "

@@ -9,9 +9,9 @@ context("Actions", () => {
   });
 
   it("title,chart, bottom card must be visible", () => {
-    cy.get("h4").should("be.visible").wait(1000);
-    cy.get("#barChart").should("be.visible").wait(1000);
-    cy.get("#bottomCard").should("be.visible").wait(1000);
+    cy.get("h4").should("be.visible");
+    cy.get("#barChart").should("be.visible");
+    cy.get("#bottomCard").should("be.visible");
   });
 
   it("select State, year, sort must change depending on selected data ", () => {
@@ -22,15 +22,18 @@ context("Actions", () => {
 
   it("title,chart, bottom card must be visible in small screens", () => {
     cy.viewport(320, 480);
-    cy.get("h4").should("be.visible");
-    cy.get("#barChart").should("be.visible");
-    cy.get("#bottomCard").should("be.visible");
+    cy.get("h4").should("be.visible").wait(1000);
+    cy.get("#barChart").should("be.visible").wait(1000);
+    cy.get("#bottomCard").should("be.visible").wait(1000);
   });
 
   it("select state, year and sort in small screen must change depending on selected data", () => {
     cy.viewport(320, 480);
-    cy.get("#state").select("Puebla").wait(1000);
-    cy.get("#year").select("2019").wait(1000);
-    cy.get("#sort").select("Descendente").wait(1000);
+    cy.get("#state").select("Puebla").should("be.visible").wait(1000);
+    cy.get("#sort")
+      .select("Descendente", { force: true })
+      .should("be.visible")
+      .wait(1000);
+    cy.get("#year").select("2018", { force: true }).should("be.visible");
   });
 });

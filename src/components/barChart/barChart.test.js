@@ -1,11 +1,10 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable no-undef */
 /* eslint-disable testing-library/await-async-utils */
-import Context from "../../context/Context";
-import { waitFor } from "@testing-library/react";
-import Enzyme, { shallow } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import "@testing-library/jest-dom";
+import Context from "../../context/Context";
+import Enzyme, { shallow } from "enzyme";
+import { waitFor } from "@testing-library/react";
 
 import { BarChart } from "./BarChart";
 
