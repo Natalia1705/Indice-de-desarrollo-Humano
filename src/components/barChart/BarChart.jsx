@@ -22,11 +22,9 @@ import {
 import { ApplicationContext } from "../../context/Context";
 
 export function BarChart() {
-  const { sort } = useContext(ApplicationContext);
-  const { selectedYear } = useContext(ApplicationContext);
-  const { selectedState } = useContext(ApplicationContext);
+  const { sort, selectedYear, selectedState } = useContext(ApplicationContext);
 
-  //listening the size of window
+  //listening the size of screen
   const size = useWindowSize();
 
   //Return´s sortered and filtered data by year
@@ -37,9 +35,9 @@ export function BarChart() {
 
   //Conditional color , depends on selectedState
   const backgroundColor = selectBackgroundColor(newStates, selectedState);
-  //data for horizontal graph (total state name), sortered and filtered by year
+  //data for horizontal graph,sortered and filtered by year (for complete state name)
   const data = newData(newStates, newidhData, backgroundColor);
-  //data for horizontal graph (abbreviated state name), sortered and filtered by year
+  //data for horizontal graph,sortered and filtered by year (for state name abbreviared )
   const dataAbr = newData(newStatesAbr, newidhData, backgroundColor);
 
   ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);

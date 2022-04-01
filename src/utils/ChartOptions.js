@@ -11,12 +11,12 @@ export const selectBackgroundColor = (newStates, selectedState) => {
   return backgroundColor;
 };
 
-//funtion tha return the graph´height container depending on window Width
+//funtion tha returns the graph´height container depending on window Width
 export const height = (windowWidth) => {
   return windowWidth < 480 ? "700px" : "360px";
 };
 
-//Chart options (idexAxis:"y" is added in vertical graph)
+//Chart options (idexAxis:"y" is added for vertical graph)
 export const options = {
   responsive: true,
   maintainAspectRatio: false,
@@ -38,7 +38,7 @@ export const optionsAbr = {
   },
 };
 
-//function that return an object with the description of attributes (passed as an argument)
+//function that return an object with the description of attributes (as arguments)
 export const newData = (newStates, newidhData, backgroundColor) => {
   const data = {
     labels: newStates,
