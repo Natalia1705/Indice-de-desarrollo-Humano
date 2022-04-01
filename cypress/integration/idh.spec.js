@@ -23,8 +23,8 @@ context("Actions", () => {
   it("title,chart, bottom card must be visible in small screens", () => {
     cy.viewport(320, 480);
     cy.get("h4").should("be.visible").wait(1000);
-    cy.get("#barChart").should("be.visible").wait(1000);
-    cy.get("#bottomCard").should("be.visible").wait(1000);
+    cy.get("#barChart").should("be.visible");
+    cy.get("#bottomCard").should("be.visible");
   });
 
   it("select state, year and sort in small screen must change depending on selected data", () => {
